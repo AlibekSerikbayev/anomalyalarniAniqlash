@@ -7,11 +7,11 @@ from sklearn.decomposition import PCA
 # .pkl fayllarni yuklash
 @st.cache_data
 def load_models():
-    with open('naive_bayes_model.pkl', 'rb') as file:
+    with open('naive_bayes_model1.pkl', 'rb') as file:
         model = pickle.load(file)
-    with open('scaler.pkl', 'rb') as file:
+    with open('scaler1.pkl', 'rb') as file:
         scaler = pickle.load(file)
-    with open('pca_model.pkl', 'rb') as file:
+    with open('pca_model1.pkl', 'rb') as file:
         pca = pickle.load(file)
     return model, scaler, pca
 
