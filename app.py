@@ -43,8 +43,6 @@ st.sidebar.write(f"Xususiyat 5: {feature_5:.2f}")
 # Kiritilgan ma'lumotlarni array shakliga keltirish (22 xususiyatga to'ldirish)
 input_data = np.array([[feature_1, feature_2, feature_3, feature_4, feature_5] + [0]*17])  # 17 ta boshqa xususiyat qo'shish
 
-input_data = np.random.uniform(-3.49, 8.08, size=(1, 22))
-
 
 # Bashorat funksiyasi
 def predict_fraud(data):
