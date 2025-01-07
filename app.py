@@ -22,21 +22,8 @@ model, scaler, pca = load_models()
 st.title("Kiberxavfsizlik: Fraud Detection Ilovasi")
 st.write("Kredit kartadagi firibgarlikni aniqlash uchun ma'lumotlaringizni kiriting.")
 
-# Xususiyatlarni kiritish (tasodifiy qiymat)
-np.random.seed()  # Har safar turli qiymatlar bo'lishi uchun
-feature_1 = np.random.uniform(-3.49, 8.08)
-feature_2 = np.random.uniform(-3.49, 8.08)
-feature_3 = np.random.uniform(-3.49, 8.08)
-feature_4 = np.random.uniform(-3.49, 8.08)
-feature_5 = np.random.uniform(-3.49, 8.08)
 
-# Streamlit sidebarda tasodifiy qiymatlarni ko'rsatish
-st.sidebar.header("Ma'lumotlar (tasodifiy qiymatlar bilan):")
-st.sidebar.write(f"Xususiyat 1: {feature_1:.2f}")
-st.sidebar.write(f"Xususiyat 2: {feature_2:.2f}")
-st.sidebar.write(f"Xususiyat 3: {feature_3:.2f}")
-st.sidebar.write(f"Xususiyat 4: {feature_4:.2f}")
-st.sidebar.write(f"Xususiyat 5: {feature_5:.2f}")
+
 
 # Kiritilgan ma'lumotlarni array shakliga keltirish
 # 22 xususiyatni tasodifiy qiymatlar bilan to'ldirish
