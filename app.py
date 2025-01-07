@@ -41,7 +41,7 @@ st.sidebar.write(f"Xususiyat 5: {feature_5:.2f}")
 # Kiritilgan ma'lumotlarni array shakliga keltirish
 # 22 xususiyatni tasodifiy qiymatlar bilan to'ldirish
 # Kiritilgan ma'lumotlarni array shakliga keltirish (22 xususiyatga to'ldirish)
-# 22 xususiyatni tasodifiy qiymatlar bilan to'ldirish
+# 22 ta tasodifiy qiymatni -3.49 dan 8.08 gacha generatsiya qilish
 input_data = np.random.uniform(-3.49, 8.08, size=(1, 22))
 
 # Bashorat funksiyasi
@@ -55,6 +55,11 @@ def predict_fraud(data):
     probability = model.predict_proba(data_pca)[:, 1]
     return prediction[0], probability[0]
 
+# Foydalanuvchi interfeysida tasodifiy qiymatlarni ko'rsatish
+st.sidebar.header("Ma'lumotlar (tasodifiy qiymatlar bilan):")
+for i, value in enumerate(input_data[0]):
+    st.sidebar.write(f"Xususiyat {i+1}: {value:.2f}")
+
 # Bashorat qilish tugmasi
 if st.button("Bashorat qiling"):
     prediction, probability = predict_fraud(input_data)
@@ -63,8 +68,8 @@ if st.button("Bashorat qiling"):
     else:
         st.success(f"Natija: Firibgarlik aniqlanmadi. Ishonch darajasi: {probability:.2%}")
 
-
 # Ma'lumotlar haqida qo'shimcha
 st.write("---")
 st.subheader("Qo'shimcha ma'lumot")
 st.write("Ushbu ilova **Streamlit** yordamida ishlab chiqilgan va ma'lumotlar bo'yicha tahlil qilish imkonini beradi.")
+
