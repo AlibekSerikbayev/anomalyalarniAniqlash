@@ -1,0 +1,2 @@
+# anomalyalarniAniqlash
+ anomalyalarniAniqlash
