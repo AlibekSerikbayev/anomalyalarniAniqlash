@@ -1,23 +1,22 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
 import pickle
-from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 
 # .pkl fayllarni yuklash
 @st.cache_data
 def load_models():
-    with open('best_decision_tree_model.pkl', 'rb') as file:
+    with open('naive_bayes_model.pkl', 'rb') as file:
         model = pickle.load(file)
-    with open('pca_model.pkl', 'rb') as file:
-        pca = pickle.load(file)
     with open('scaler.pkl', 'rb') as file:
         scaler = pickle.load(file)
-    return model, pca, scaler
+    with open('pca_model.pkl', 'rb') as file:
+        pca = pickle.load(file)
+    return model, scaler, pca
 
-# Model, PCA va Scaler yuklash
-model, pca, scaler = load_models()
+# Model, Scaler va PCA yuklash
+model, scaler, pca = load_models()
 
 # Foydalanuvchi interfeysi
 st.title("Kiberxavfsizlik: Fraud Detection Ilovasi")
@@ -57,5 +56,3 @@ if st.button("Bashorat qiling"):
 st.write("---")
 st.subheader("Qo'shimcha ma'lumot")
 st.write("Ushbu ilova **Streamlit** yordamida ishlab chiqilgan va ma'lumotlar bo'yicha tahlil qilish imkonini beradi.")
-
-
