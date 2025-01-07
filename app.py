@@ -22,13 +22,21 @@ model, scaler, pca = load_models()
 st.title("Kiberxavfsizlik: Fraud Detection Ilovasi")
 st.write("Kredit kartadagi firibgarlikni aniqlash uchun ma'lumotlaringizni kiriting.")
 
-# Xususiyatlarni kiritish
-st.sidebar.header("Ma'lumotlarni kiriting:")
-feature_1 = st.sidebar.number_input("Xususiyat 1", value=0.0)
-feature_2 = st.sidebar.number_input("Xususiyat 2", value=0.0)
-feature_3 = st.sidebar.number_input("Xususiyat 3", value=0.0)
-feature_4 = st.sidebar.number_input("Xususiyat 4", value=0.0)
-feature_5 = st.sidebar.number_input("Xususiyat 5", value=0.0)
+# Xususiyatlarni kiritish (tasodifiy qiymat)
+np.random.seed()  # Har safar turli qiymatlar bo'lishi uchun
+feature_1 = np.random.uniform(-3.49, 8.08)
+feature_2 = np.random.uniform(-3.49, 8.08)
+feature_3 = np.random.uniform(-3.49, 8.08)
+feature_4 = np.random.uniform(-3.49, 8.08)
+feature_5 = np.random.uniform(-3.49, 8.08)
+
+# Streamlit sidebarda tasodifiy qiymatlarni ko'rsatish
+st.sidebar.header("Ma'lumotlar (tasodifiy qiymatlar bilan):")
+st.sidebar.write(f"Xususiyat 1: {feature_1:.2f}")
+st.sidebar.write(f"Xususiyat 2: {feature_2:.2f}")
+st.sidebar.write(f"Xususiyat 3: {feature_3:.2f}")
+st.sidebar.write(f"Xususiyat 4: {feature_4:.2f}")
+st.sidebar.write(f"Xususiyat 5: {feature_5:.2f}")
 
 # Kiritilgan ma'lumotlarni array shakliga keltirish
 input_data = np.array([[feature_1, feature_2, feature_3, feature_4, feature_5]])
